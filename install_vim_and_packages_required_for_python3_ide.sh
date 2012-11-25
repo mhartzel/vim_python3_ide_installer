@@ -213,7 +213,7 @@ set ruler
 
 " Hightlight current line
 set cul
-hi CursorLine term=none cterm=none ctermbg=1
+hi CursorLine term=none cterm=none ctermbg=17
 
 " Show statusline (with the filename, ascii value (decimal), hex value, and the standard lines, cols, 
 set statusline=%t%h%m%r%=[%b\ 0x%02B]\ \ \ %l,%c%V\ %P
