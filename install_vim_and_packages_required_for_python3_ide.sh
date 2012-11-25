@@ -144,7 +144,7 @@ call pathogen#helptags()
 nmap <F8> :TagbarToggle<CR>
 
 " Colorscheme
-colorscheme desert
+colorscheme desert256
 set background=dark
 
 " Set on syntax highlighting, indentation, and line numbering
