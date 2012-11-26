@@ -1,6 +1,40 @@
 #!/bin/bash
 
-if [ "$UID" != "0" ] ; then echo ; echo "This script must be run as root" ; echo ; exit ; fi
+if [ "$UID" != "0" ] ; then
+	echo
+	echo "This script must be run as root"
+	echo
+	exit
+fi
+
+REAL_USER_NAME=`logname`
+
+if [ "$REAL_USER_NAME" == ""  ] ; then
+	REAL_USER_NAME="$1"
+fi
+
+if [ "$REAL_USER_NAME" == ""  ] ; then
+	echo
+	echo "ERROR: Can not find out your real username, please give your real username as the first argument for the script." 
+	echo
+	exit
+fi
+
+HOME_DIRECTORY=`getent passwd $REAL_USER_NAME | cut -d: -f6`
+
+if [ "$HOME_DIRECTORY" == "" ] ; then
+	echo
+	echo "ERROR: Can not find out the path to the home directory of: '"$REAL_USER_NAME"', can not continue."
+	echo
+	exit
+fi
+
+if [ ! -e "$HOME_DIRECTORY" ] ; then
+	echo
+	echo "ERROR: Your home directory: "$HOME_DIRECTORY" does not exist, can not continue."
+	echo
+	exit
+fi
 
 echo
 echo "This program will do the following things:"
@@ -15,9 +49,6 @@ echo "If you don't want this then press ctrl + c now."
 echo
 read -p "Press [Enter] key to start.."
 echo
-
-REAL_USER_NAME=`logname`
-HOME_DIRECTORY=`getent passwd $REAL_USER_NAME | cut -d: -f6`
 
 
 
@@ -37,7 +68,7 @@ echo "Compiling and installing vim..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 rm -rf vim
-hg clone https://vim.googlecode.com/hg/ vim
+hg clone http://vim.googlecode.com/hg/ vim
 cd vim
 ./configure --with-features=normal --enable-python3interp --enable-multibyte --disable-gui --prefix=/usr
 make -j4
@@ -78,6 +109,7 @@ fi
 mkdir -p .vim/autoload .vim/bundle
 cd .vim/autoload
 wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
@@ -88,7 +120,8 @@ echo "Installing Tagbar..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 cd .vim/bundle
-git clone git://github.com/majutsushi/tagbar
+git clone http://github.com/majutsushi/tagbar
+cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
@@ -295,7 +328,8 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 cat > .xsession << 'END_OF_FILE'
 
-# Lataa sisään loggautuessa aina fonttiasetus tiedostosta ~./Xresources
+# Load settings from file ~./Xresources every time the user logs in.
+
 if [ -f $HOME/.Xresources ]; then
   xrdb -merge ~/.Xresources
 fi
