@@ -255,6 +255,12 @@ set laststatus=2
 "make the command line 1 line high
 set cmdheight=1
 
+" The '' command is useless because it always forces the cursor to the start of line after jumping.
+" I prefer always to jump to last cursor position insted, I can always go to 0 if I want to.
+" The following command forces '' to always jump back to last cursor position.                          
+:map '' ``
+
+
 END_OF_FILE
 
 chown $REAL_USER_NAME:$REAL_USER_NAME .vimrc
