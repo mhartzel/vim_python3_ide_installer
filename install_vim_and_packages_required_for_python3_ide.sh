@@ -260,6 +260,8 @@ set cmdheight=1
 " The following command forces '' to always jump back to last cursor position.                          
 :map '' ``
 
+" Show indentation guides when pressing F3.
+noremap <F3> :set list! listchars=tab:\.\ <CR>
 
 END_OF_FILE
 
