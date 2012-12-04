@@ -42,30 +42,35 @@ After installation fire up urxvt and start vim in it :)
 
 
 
-Desert256 colorscheme
+## Desert256 colorscheme
 
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256.png)
 
 
 
-Distinguished colorscheme
+## Distinguished colorscheme (256 colors)
+
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/distinguished.png)
 
 
+## Jellybeans colorscheme (256 colors)
 
-Jellybeans colorscheme
-
-
-
-Murphy colorscheme
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/jellybeans.png)
 
 
+## Murphy colorscheme (8 colors)
 
-Slate colorscheme
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/murphy.png)
 
 
+## Slate colorscheme (8 colors)
 
-Vims own default colorscheme
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/slate.png)
 
+
+## Vims own default colorscheme (8 colors)
+
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/vims_own_default_colorscheme.png)
 
 
 
