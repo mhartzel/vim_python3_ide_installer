@@ -39,11 +39,12 @@ fi
 echo
 echo "This program will do the following things:"
 echo
-echo "- Uninstall previous vim packages and compile and install a new one with Python3 support."
+echo "- Uninstall previous vim packages and old vim configuration. Compile and install a new vim with Python3 support."
 echo "- Download and install 256 color capable urxvt terminal emulator and set it up to use the clipboard and the Terminus font ."
 echo "- Install vim plugins Pathogen and Tagbar plugins to make vim a Python3 IDE."
 echo "- Remove most color schemes that comes with vim, leaving only: default, desert, murphy and slate."
-echo "- Install 256 color vim color schemes: desert256, distinguished, jellybeans, solarized."
+echo "- Install 256 color vim color schemes: desert256, distinguished, jellybeans."
+echo "- Sets colorscheme desert256 as default."
 echo
 echo "If you don't want this then press ctrl + c now."
 echo
@@ -55,9 +56,18 @@ echo
 # Remove previous vim installations and install dependencies
 echo "Removing apt vim packages..."
 echo "--------------------------------------------------------------------------------"
-apt-get -y remove vim vim-addon-manager vim-common vim-tiny vim-runtime vim-nox
+apt-get -y purge vim vim-addon-manager vim-common vim-tiny vim-runtime vim-nox
+VIM_PATH=`which vim`
+if [ -e "$VIM_PATH" ] ; then rm -rf "$VIM_PATH" ; fi
+echo
+echo "Removing old vim config files..."
+echo "--------------------------------------------------------------------------------"
+rm -rf /usr/share/vim*
+rm -rf "$REAL_USER_NAME/.vim*"
+rm -rf "$REAL_USER_NAME/vim*"
 echo
 echo "Installing dependencies with apt-get ..."
+echo "--------------------------------------------------------------------------------"
 apt-get -y install git mercurial python3 python3-dev libncurses5-dev build-essential rxvt-unicode-256color xfonts-terminus xclip
 
 
@@ -80,7 +90,7 @@ rm -rf vim
 
 # Exuberant Ctags compilation is needed for tagbar.
 echo
-echo "Compiling and installing Exuberant Ctags (a requirement of Tagbar) ..."
+echo "Compiling and installing Exuberant Ctags (requirement of Tagbar) ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 wget http://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz
@@ -125,6 +135,7 @@ cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
+
 # Remove bad looking color schemes that ship with vim
 echo
 echo "Deleting bad color schems that ship with vim..."
@@ -158,7 +169,6 @@ rm -f solarized.vim
 wget http://www.vim.org/scripts/download_script.php?src_id=17225 -O jellybeans.vim
 wget http://www.vim.org/scripts/download_script.php?src_id=4055 -O desert256.vim
 wget https://github.com/Lokaltog/vim-distinguished/raw/develop/colors/distinguished.vim
-wget https://github.com/altercation/vim-colors-solarized/raw/master/colors/solarized.vim
 
 
 
@@ -177,8 +187,8 @@ call pathogen#helptags()
 nmap <F8> :TagbarToggle<CR>
 
 " Colorscheme
-colorscheme desert256
 set background=dark
+colorscheme desert256
 
 " Set on syntax highlighting, indentation, and line numbering
 syntax on
