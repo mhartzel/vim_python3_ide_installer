@@ -61,7 +61,7 @@ After installation fire up urxvt and start vim in it :)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256.png)
 
 
-## Aldmeris256 colorscheme
+## Aldmeris256 colorscheme (based on oblivion colorscheme for Gedit)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/aldmeris256.png)
 
 
