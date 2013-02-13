@@ -104,6 +104,20 @@ rm -rf ctags-5.8
 
 
 
+# Install Pyflakes
+echo
+echo "Installing Pyflakes ..."
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+wget http://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.6.1.tar.gz#md5=00debd2280b962e915dfee552a675915
+tar xzvf pyflakes-0.6.1.tar.gz
+cd pyflakes-0.6.1
+/usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.6.1/setup.py install
+cd ..
+rm -rf pyflakes-0.6.1
+
+
+
 # Pathogen is used to load other vim plugins.
 echo
 echo "Installing Pathogen..."
@@ -136,9 +150,47 @@ chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
 
+# Syntastic
+echo
+echo "Installing Syntastic"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/scrooloose/syntastic.git
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+# Supertab
+echo
+echo "Installing Supertab"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/ervandew/supertab.git
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+
+# PyDoc
+echo
+echo "Installing PyDoc"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/fs111/pydoc.vim.git
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+
 # Remove bad looking color schemes that ship with vim
 echo
-echo "Deleting bad color schems that ship with vim..."
+echo "Deleting bad color schemes that ship with vim..."
 echo "--------------------------------------------------------------------------------"
 rm /usr/share/vim/vim73/colors/blue.vim
 rm /usr/share/vim/vim73/colors/darkblue.vim
@@ -272,6 +324,15 @@ noremap <F3> :set list! listchars=tab:\.\ <CR>
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+
+" Configure Syntastic to open error window when errors are detected
+let g:syntastic_auto_loc_list = 1
+
+" Configure Supertab to complete python3 commands when pressing TAB and showing description of commands in a window.
+au FileType python set omnifunc=python3complete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 " Colorscheme
 set background=dark

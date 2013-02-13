@@ -8,6 +8,8 @@ This program will do the following things:
 - Compile and install vim from source with Python3 support.
 - Download and install 256 color capable urxvt terminal emulator and set it up to use clipboard and the Terminus font.
 - Install vim plugins Pathogen and Tagbar to make vim a Python3 IDE.
+- Install Syntastic and Pyflakes.
+- Install Supertab and Pydoc.
 - Remove most color schemes that come with vim, leaving only: default, desert, murphy and slate.
 - Install 256 color vim colorschemes: desert256, distinguished, jellybeans.
 - Sets colorscheme desert256 as the default colorscheme.
@@ -16,7 +18,8 @@ After installation you have:
 
 - A 256 color and UTF-8 capable terminal emulator urxvt.
 - Basic copy / paste functionality between urxvt and other programs.
-- Python3 syntax highlighting.
+- Python3 syntax checking and keyword highlighting.
+- Python3 documentation for the keyword under cursor opens with leader + pw  (\ pw  NOTE second character must be pressed within 1 second) .
 - The current line is underlined with a single pixel white line (only in colorscheme desert256).
 - F2 - turns on/off line numbers.
 - F3 - turns on/off ident guidelines
@@ -42,36 +45,46 @@ After installation fire up urxvt and start vim in it :)
 - Copy / paste works between most graphical programs and urxvt, but with for example Gmail it does not work. You can overcome this by installing the small and lightweight clipboard manager: parcellite. As a bonus it remembers your previous clipboard texts also :)
 
 
+## Syntax checking
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Syntastic-Pyflakes.png)
+
+
+## Complete keywords by pressing Tab
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab.png)
+
+
+## leader + pw shows documentatin for the keyword under cursor
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab-Pydocs.png)
+
 
 ## Desert256 colorscheme
 
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256.png)
 
 
-
 ## Distinguished colorscheme (256 colors)
 
-![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/distinguished.png)
+![Distinguisged256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/distinguished.png)
 
 
 ## Jellybeans colorscheme (256 colors)
 
-![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/jellybeans.png)
+![Jellybeans256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/jellybeans.png)
 
 
 ## Murphy colorscheme (8 colors)
 
-![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/murphy.png)
+![Murphy8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/murphy.png)
 
 
 ## Slate colorscheme (8 colors)
 
-![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/slate.png)
+![Slate8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/slate.png)
 
 
 ## Vims own default colorscheme (8 colors)
 
-![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/vims_own_default_colorscheme.png)
+![Vim8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/vims_own_default_colorscheme.png)
 
 
 
