@@ -11,7 +11,7 @@ This program will do the following things:
 - Install Syntastic and Pyflakes.
 - Install Supertab and Pydoc.
 - Remove most color schemes that come with vim, leaving only: default, desert, murphy and slate.
-- Install 256 color vim colorschemes: desert256, distinguished, jellybeans.
+- Install 256 color vim colorschemes: desert256, distinguished, jellybeans, aldmeris (based on oblivion colorscheme for Gedit).
 - Sets colorscheme desert256 as the default colorscheme.
 
 After installation you have:
@@ -58,32 +58,30 @@ After installation fire up urxvt and start vim in it :)
 
 
 ## Desert256 colorscheme
-
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256.png)
 
 
-## Distinguished colorscheme (256 colors)
+## Aldmeris256 colorscheme
+![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/aldmeris256.png)
 
+
+## Distinguished colorscheme (256 colors)
 ![Distinguisged256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/distinguished.png)
 
 
 ## Jellybeans colorscheme (256 colors)
-
 ![Jellybeans256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/jellybeans.png)
 
 
 ## Murphy colorscheme (8 colors)
-
 ![Murphy8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/murphy.png)
 
 
 ## Slate colorscheme (8 colors)
-
 ![Slate8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/slate.png)
 
 
 ## Vims own default colorscheme (8 colors)
-
 ![Vim8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/vims_own_default_colorscheme.png)
 
 

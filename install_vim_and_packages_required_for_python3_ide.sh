@@ -221,7 +221,7 @@ rm -f solarized.vim
 wget http://www.vim.org/scripts/download_script.php?src_id=17225 -O jellybeans.vim
 wget http://www.vim.org/scripts/download_script.php?src_id=4055 -O desert256.vim
 wget https://github.com/Lokaltog/vim-distinguished/raw/develop/colors/distinguished.vim
-
+wget https://github.com/veloce/vim-aldmeris/raw/master/colors/aldmeris.vim
 
 
 # Write .vimrc
