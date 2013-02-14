@@ -65,9 +65,15 @@ After installation fire up urxvt and start vim in it :)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab.png)
 
 
-## Shows documentation for the keyword under cursor
-## Python3: leader + pw ( \pw )
-## C: leader + cr ( \cr )
+## View documentation for the keyword under cursor
+
+```ruby
+Python3: leader + pw ( \pw )
+```
+```ruby
+C: leader + cr ( \cr )
+```
+
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab-Pydocs.png)
 
 
