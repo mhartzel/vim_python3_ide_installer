@@ -104,6 +104,26 @@ rm -rf ctags-5.8
 
 
 
+# Install C reference documents
+echo
+echo "Installing C language reference documents ..."
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY/.vim
+mkdir -p plugin
+mkdir -p doc
+mkdir -p after/syntax
+cd $HOME_DIRECTORY
+wget http://www.vim.org/scripts/download_script.php?src_id=3666 -O crefvim.zip
+unzip crefvim.zip
+cd crefvim
+cp plugin/crefvim.vim $HOME_DIRECTORY/.vim/plugin/
+cp doc/crefvimdoc.txt $HOME_DIRECTORY/.vim/doc/
+cp doc/crefvim.txt $HOME_DIRECTORY/.vim/doc/
+cp after/syntax/help.vim $HOME_DIRECTORY/.vim/after/syntax
+rm -rf crefvim
+
+
+
 # Install Pyflakes
 echo
 echo "Installing Pyflakes ..."

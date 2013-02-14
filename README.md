@@ -1,6 +1,6 @@
 # Vim as Python3 IDE
 
-This is my shell script to install vim and other packages so that I can use vim as my Python3 development environment.
+This is my shell script to install vim and other packages so that I can use vim as my Python3 and C development environment.
 
 This program will do the following things:
 
@@ -10,6 +10,7 @@ This program will do the following things:
 - Install vim plugins Pathogen and Tagbar to make vim a Python3 IDE.
 - Install Syntastic and Pyflakes.
 - Install Supertab and Pydoc.
+- Install C language reference documents.
 - Remove most color schemes that come with vim, leaving only: default, desert, murphy and slate.
 - Install 256 color vim colorschemes: desert256, distinguished, jellybeans, aldmeris (based on oblivion colorscheme for Gedit).
 - Sets colorscheme desert256 as the default colorscheme.
@@ -20,7 +21,10 @@ After installation you have:
 - Basic copy / paste functionality between urxvt and other programs.
 - Python3 syntax checking (every time you save).
 - Python3 syntax highlighting.
-- Python3 documentation for the keyword under cursor opens with leader + pw  (\ pw  NOTE second character must be pressed within 1 second) .
+- Python3 documentation for the keyword under cursor opens with leader + pw  ( \ pw  NOTE second character must be pressed within 1 second ).
+- C syntax checking (every time you save)
+- C syntax highlighting.
+- C reference documentation for the keyword under cursor opens with leader + cr  ( \ cr  NOTE second character must be pressed within 1 second ).
 - The current line is underlined with a single pixel white line (only in colorscheme desert256).
 - F2 - turns on/off line numbers.
 - F3 - turns on/off ident guidelines
@@ -49,11 +53,11 @@ After installation fire up urxvt and start vim in it :)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/Line_numbers-indent_guides.png)
 
 
-## Tagbar shows the current 'scope' and lets jump to function and variable definitions
+## Tagbar shows the current 'scope' and lets jump to function and variable definitions (toggle on/off with F8)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/tagbar.png)
 
 
-## Syntax checking
+## Python3 and C syntax checking
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Syntastic-Pyflakes.png)
 
 
@@ -61,7 +65,7 @@ After installation fire up urxvt and start vim in it :)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab.png)
 
 
-## leader + pw shows documentation for the keyword under cursor
+## Shows documentation for the keyword under cursor (Python3: leader + pw   C: leader + cr )
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab-Pydocs.png)
 
 
