@@ -49,6 +49,30 @@ After installation fire up urxvt and start vim in it :)
 - Copy paste in urxvt works like this: text highlighted in urxvt is immediately copied to clipboard when you release the mouse button. Paste with: shift + ctrl +v.
 - Copy / paste works between most graphical programs and urxvt, but with for example Gmail it does not work. You can overcome this by installing the small and lightweight clipboard manager: parcellite. As a bonus it remembers your previous clipboard texts also :)
 
+
+# Installation
+
+### Method 1:
+
+> git clone https://github.com/mhartzel/vim_python3_ide_installer.git
+
+> cd vim_python3_ide_installer
+
+> ./install_vim_and_packages_required_for_python3_ide.sh
+
+### Method 2:
+
+First download file:
+
+>https://raw.github.com/mhartzel/vim_python3_ide_installer/master/install_vim_and_packages_required_for_python3_ide.sh
+
+Then:
+
+> chmod 755 install_vim_and_packages_required_for_python3_ide.sh
+
+> ./install_vim_and_packages_required_for_python3_ide.sh
+
+
 ## Toggle line numbers and indent guides on / off
 
 ```ruby
@@ -78,10 +102,10 @@ Toggle Tagbar on/off with F8
 
 ## View documentation for the keyword under cursor
 
-```ruby
+```
 Python3: leader + pw ( \pw )
 ```
-```ruby
+```
 C: leader + cr ( \cr )
 ```
 
