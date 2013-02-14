@@ -101,26 +101,7 @@ make
 make install
 cd ..
 rm -rf ctags-5.8
-
-
-
-# Install C reference documents
-echo
-echo "Installing C language reference documents ..."
-echo "--------------------------------------------------------------------------------"
-cd $HOME_DIRECTORY/.vim
-mkdir -p plugin
-mkdir -p doc
-mkdir -p after/syntax
-cd $HOME_DIRECTORY
-wget http://www.vim.org/scripts/download_script.php?src_id=3666 -O crefvim.zip
-unzip crefvim.zip
-cd crefvim
-cp plugin/crefvim.vim $HOME_DIRECTORY/.vim/plugin/
-cp doc/crefvimdoc.txt $HOME_DIRECTORY/.vim/doc/
-cp doc/crefvim.txt $HOME_DIRECTORY/.vim/doc/
-cp after/syntax/help.vim $HOME_DIRECTORY/.vim/after/syntax
-rm -rf crefvim
+rm -f ctags-5.8.tar.gz
 
 
 
@@ -135,6 +116,7 @@ cd pyflakes-0.6.1
 /usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.6.1/setup.py install
 cd ..
 rm -rf pyflakes-0.6.1
+rm -f pyflakes-0.6.1.tar.gz
 
 
 
@@ -155,6 +137,23 @@ cd .vim/autoload
 wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+# Install C reference documents
+echo
+echo "Installing C language reference documents ..."
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+mkdir -p .vim/plugin .vim/doc .vim/after/syntax
+wget http://www.vim.org/scripts/download_script.php?src_id=3666 -O crefvim.zip
+unzip crefvim.zip
+cp crefvim/plugin/crefvim.vim $HOME_DIRECTORY/.vim/plugin/
+cp crefvim/doc/crefvimdoc.txt $HOME_DIRECTORY/.vim/doc/
+cp crefvim/doc/crefvim.txt $HOME_DIRECTORY/.vim/doc/
+cp crefvim/after/syntax/help.vim $HOME_DIRECTORY/.vim/after/syntax
+rm -rf crefvim
+rm -f crefvim.zip
 
 
 
