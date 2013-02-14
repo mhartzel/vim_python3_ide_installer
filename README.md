@@ -1,4 +1,4 @@
-# Vim as Python3 IDE
+# Vim as Python3 and C IDE
 
 This is my shell script to install vim and other packages so that I can use vim as my Python3 and C development environment.
 
@@ -21,10 +21,10 @@ After installation you have:
 - Basic copy / paste functionality between urxvt and other programs.
 - Python3 syntax checking (every time you save).
 - Python3 syntax highlighting.
-- Python3 documentation for the keyword under cursor opens with leader + pw  ( \ pw  NOTE second character must be pressed within 1 second ).
+- Python3 documentation for the keyword under cursor opens with leader + pw  ( \pw  NOTE second character must be pressed within 1 second ).
 - C syntax checking (every time you save)
 - C syntax highlighting.
-- C reference documentation for the keyword under cursor opens with leader + cr  ( \ cr  NOTE second character must be pressed within 1 second ).
+- C reference documentation for the keyword under cursor opens with leader + cr  ( \cr  NOTE second character must be pressed within 1 second ).
 - The current line is underlined with a single pixel white line (only in colorscheme desert256).
 - F2 - turns on/off line numbers.
 - F3 - turns on/off ident guidelines
@@ -65,7 +65,9 @@ After installation fire up urxvt and start vim in it :)
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab.png)
 
 
-## Shows documentation for the keyword under cursor (Python3: leader + pw   C: leader + cr )
+## Shows documentation for the keyword under cursor
+## Python3: leader + pw ( \pw )
+## C: leader + cr ( \cr )
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab-Pydocs.png)
 
 
