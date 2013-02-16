@@ -13,7 +13,9 @@ This program will do the following things:
 - Install C language reference documents.
 - Remove most color schemes that come with vim, leaving only: default, desert, murphy and slate.
 - Install 256 color vim colorschemes: desert256, distinguished, jellybeans, aldmeris (based on oblivion colorscheme for Gedit).
-- Sets colorscheme desert256 as the default colorscheme.
+- All colorschemes are modified to show the current line as a 1 pixel undeline.
+- Aldmeris default color for statements (white) is the same as for the rest of text. Statements should stand out, so the color is changed to green.
+- Colorscheme desert256 is set as the default colorscheme.
 
 After installation you have:
 
@@ -25,7 +27,7 @@ After installation you have:
 - C syntax checking (every time you save)
 - C syntax highlighting.
 - C reference documentation for the keyword under cursor opens with leader + cr  ( \cr  NOTE second character must be pressed within 1 second ).
-- The current line is underlined with a single pixel white line (only in colorscheme desert256).
+- The current line is underlined with a single pixel white line (all colorschemes). 
 - F2 - turns on/off line numbers.
 - F3 - turns on/off ident guidelines
 - F5 - turns on/off automatic identation (needs to be turned off when pasting text into vim).
@@ -54,26 +56,14 @@ After installation fire up urxvt and start vim in it :)
 
 ### Requirements: Ubuntu or another Debian based Linux disto
 
-### Method 1:
-
 > git clone https://github.com/mhartzel/vim_python3_ide_installer.git
 
 > cd vim_python3_ide_installer
 
 > ./install_vim_and_packages_required_for_python3_ide.sh
 
-### Method 2:
 
-First download file:
-
->https://raw.github.com/mhartzel/vim_python3_ide_installer/master/install_vim_and_packages_required_for_python3_ide.sh
-
-Then:
-
-> chmod 755 install_vim_and_packages_required_for_python3_ide.sh
-
-> ./install_vim_and_packages_required_for_python3_ide.sh
-
+# Screenshots
 
 ## Toggle line numbers and indent guides on / off
 

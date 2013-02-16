@@ -36,6 +36,29 @@ if [ ! -e "$HOME_DIRECTORY" ] ; then
 	exit
 fi
 
+
+# Get the path to this script
+FULL_PATH_TO_SCRIPT=$(readlink -f $0)
+PATH_TO_SCRIPT_DIR=`dirname $FULL_PATH_TO_SCRIPT`
+PATH_TO_MODIFIED_COLOR_SCHEMES_DIR="$PATH_TO_SCRIPT_DIR/modified_colorschemes"
+
+if [ ! -e "$PATH_TO_MODIFIED_COLOR_SCHEMES_DIR" ] ; then
+        echo
+        echo "ERROR: Directory for the modified color schemes: "$PATH_TO_MODIFIED_COLOR_SCHEMES_DIR" does not exist, can not continue."
+        echo
+        exit
+fi
+
+if [ ! -e "$PATH_TO_SCRIPT_DIR/" ] ; then
+        echo
+        echo "ERROR: Your home directory: "$HOME_DIRECTORY" does not exist, can not continue."
+        echo
+        exit
+fi
+
+
+
+# Start intallation
 echo
 echo "This program will do the following things:"
 echo
@@ -193,7 +216,6 @@ chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
 
-
 # PyDoc
 echo
 echo "Installing PyDoc"
@@ -206,24 +228,23 @@ chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
 
-
 # Remove bad looking color schemes that ship with vim
 echo
 echo "Deleting bad color schemes that ship with vim..."
 echo "--------------------------------------------------------------------------------"
-rm /usr/share/vim/vim73/colors/blue.vim
-rm /usr/share/vim/vim73/colors/darkblue.vim
-rm /usr/share/vim/vim73/colors/delek.vim
-rm /usr/share/vim/vim73/colors/elflord.vim
-rm /usr/share/vim/vim73/colors/evening.vim
-rm /usr/share/vim/vim73/colors/koehler.vim
-rm /usr/share/vim/vim73/colors/morning.vim
-rm /usr/share/vim/vim73/colors/pablo.vim
-rm /usr/share/vim/vim73/colors/peachpuff.vim
-rm /usr/share/vim/vim73/colors/ron.vim
-rm /usr/share/vim/vim73/colors/shine.vim
-rm /usr/share/vim/vim73/colors/torte.vim
-rm /usr/share/vim/vim73/colors/zellner.vim
+rm -v /usr/share/vim/vim73/colors/blue.vim
+rm -v /usr/share/vim/vim73/colors/darkblue.vim
+rm -v /usr/share/vim/vim73/colors/delek.vim
+rm -v /usr/share/vim/vim73/colors/elflord.vim
+rm -v /usr/share/vim/vim73/colors/evening.vim
+rm -v /usr/share/vim/vim73/colors/koehler.vim
+rm -v /usr/share/vim/vim73/colors/morning.vim
+rm -v /usr/share/vim/vim73/colors/pablo.vim
+rm -v /usr/share/vim/vim73/colors/peachpuff.vim
+rm -v /usr/share/vim/vim73/colors/ron.vim
+rm -v /usr/share/vim/vim73/colors/shine.vim
+rm -v /usr/share/vim/vim73/colors/torte.vim
+rm -v /usr/share/vim/vim73/colors/zellner.vim
 
 
 
@@ -237,10 +258,18 @@ rm -f jellybeans.vim
 rm -f desert256.vim
 rm -f distinguished.vim
 rm -f solarized.vim
-wget http://www.vim.org/scripts/download_script.php?src_id=17225 -O jellybeans.vim
 wget http://www.vim.org/scripts/download_script.php?src_id=4055 -O desert256.vim
-wget https://github.com/Lokaltog/vim-distinguished/raw/develop/colors/distinguished.vim
-wget https://github.com/veloce/vim-aldmeris/raw/master/colors/aldmeris.vim
+
+# Install modified colorschemes aldmeris, distinguished and jellybeans
+echo
+echo "Installing modified colorschemes Aldmeris, Distinguished and Jellybeans..."
+echo "--------------------------------------------------------------------------------"
+echo
+
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/aldmeris.vim /usr/share/vim/vim73/colors/
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/distinguished.vim /usr/share/vim/vim73/colors/
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/jellybeans.vim /usr/share/vim/vim73/colors/
+
 
 
 # Write .vimrc
