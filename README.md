@@ -13,7 +13,7 @@ This program will do the following things:
 - Install C language reference documents.
 - Remove most color schemes that come with vim, leaving only: default, desert, murphy and slate.
 - Install 256 color vim colorschemes: desert256, distinguished, jellybeans, aldmeris (based on oblivion colorscheme for Gedit).
-- All colorschemes are modified to show the current line as a 1 pixel undeline.
+- All colorschemes are modified to show the current line as a 1 pixel underline.
 - Aldmeris default color for statements (white) is the same as for the rest of text. Statements should stand out, so the color is changed to green.
 - Colorscheme desert256 is set as the default colorscheme.
 
