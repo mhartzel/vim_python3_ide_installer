@@ -103,6 +103,7 @@ C: leader + cr ( \cr )
 
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256-Supertab-Pydocs.png)
 
+# Colorschemes
 
 ## Desert256 colorscheme
 ![Desert256](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert256.png)
@@ -131,6 +132,7 @@ C: leader + cr ( \cr )
 ## Vims own default colorscheme (8 colors)
 ![Vim8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/vims_own_default_colorscheme.png)
 
-
+## Desert colorscheme (8 colors)
+![Vim8](http://github.com/mhartzel/vim_python3_ide_installer/raw/master/Pictures/desert8.png)
 
 
