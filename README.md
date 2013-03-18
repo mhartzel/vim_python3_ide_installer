@@ -6,7 +6,7 @@ This program will do the following things:
 
 - Uninstall previous vim packages and old vim configuration.
 - Compile and install vim from source with Python3 support.
-- Download and install 256 color capable urxvt terminal emulator and set it up to use clipboard and the Terminus font.
+- Download and install 256 color capable urxvt terminal emulator and set it up to use clipboard and the Terminus font. Urxvt is the fastest terminal I found and it supports unicode characters and tabs. Terminus font makes code easier to read.
 - Install vim plugins Pathogen and Tagbar to make vim an IDE.
 - Install Syntastic and Pyflakes.
 - Install Supertab and Pydoc.
