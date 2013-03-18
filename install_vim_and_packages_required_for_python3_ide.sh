@@ -470,6 +470,21 @@ URxvt.perl-ext-common: default,clipboard,tabbed
 ! Colors for urxvt
 URxvt*foreground: Wheat
 URxvt*background: Black
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tab-bg: 0
+URxvt.tabbed.tab-fg: 2
+
+! Make Urxvt use s scrollbar
+URxvt.scrollstyle: rxvt
+URxvt*scrollBar_right: true
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
 
 END_OF_FILE
 
