@@ -133,13 +133,13 @@ echo
 echo "Installing Pyflakes ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
-wget http://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.6.1.tar.gz#md5=00debd2280b962e915dfee552a675915
-tar xzvf pyflakes-0.6.1.tar.gz
-cd pyflakes-0.6.1
-/usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.6.1/setup.py install
+wget http://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.7.2.tar.gz#md5=2b27790c2fd6020ed045674c03092a8c
+tar xzvf pyflakes-0.7.2.tar.gz
+cd pyflakes-0.7.2
+/usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.7.2/setup.py install
 cd ..
-rm -rf pyflakes-0.6.1
-rm -f pyflakes-0.6.1.tar.gz
+rm -rf pyflakes-0.7.2
+rm -f pyflakes-0.7.2.tar.gz
 
 
 
@@ -199,6 +199,8 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 cd .vim/bundle
 git clone https://github.com/scrooloose/syntastic.git
+cd syntastic
+git checkout ec434f50b189b3ba990052bd237e1da4f9c9c576
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
