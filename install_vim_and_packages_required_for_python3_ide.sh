@@ -109,7 +109,13 @@ make install
 cd $HOME_DIRECTORY
 rm -rf vim
 
-
+# Get the version number of Vim
+VIM_OUTPUT=`vim --version | awk '{ print $5 ; exit  }'`
+VIM_TEMP=`echo $VIM_OUTPUT | sed 's/\.//'`
+VIM_VERSION="vim"$VIM_TEMP
+echo
+echo "The version number of Vim is "$VIM_OUTPUT
+echo "--------------------------------------------------------------------------------"
 
 # Exuberant Ctags compilation is needed for tagbar.
 echo
@@ -133,13 +139,13 @@ echo
 echo "Installing Pyflakes ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
-wget http://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.7.2.tar.gz#md5=2b27790c2fd6020ed045674c03092a8c
-tar xzvf pyflakes-0.7.2.tar.gz
-cd pyflakes-0.7.2
-/usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.7.2/setup.py install
+wget https://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.7.3.tar.gz#md5=ec94ac11cb110e6e72cca23c104b66b1
+tar xzvf pyflakes-0.7.3.tar.gz
+cd pyflakes-0.7.3
+/usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.7.3/setup.py install
 cd ..
-rm -rf pyflakes-0.7.2
-rm -f pyflakes-0.7.2.tar.gz
+rm -rf pyflakes-0.7.3
+rm -f pyflakes-0.7.3.tar.gz
 
 
 
@@ -234,19 +240,19 @@ chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 echo
 echo "Deleting bad color schemes that ship with vim..."
 echo "--------------------------------------------------------------------------------"
-rm -v /usr/share/vim/vim73/colors/blue.vim
-rm -v /usr/share/vim/vim73/colors/darkblue.vim
-rm -v /usr/share/vim/vim73/colors/delek.vim
-rm -v /usr/share/vim/vim73/colors/elflord.vim
-rm -v /usr/share/vim/vim73/colors/evening.vim
-rm -v /usr/share/vim/vim73/colors/koehler.vim
-rm -v /usr/share/vim/vim73/colors/morning.vim
-rm -v /usr/share/vim/vim73/colors/pablo.vim
-rm -v /usr/share/vim/vim73/colors/peachpuff.vim
-rm -v /usr/share/vim/vim73/colors/ron.vim
-rm -v /usr/share/vim/vim73/colors/shine.vim
-rm -v /usr/share/vim/vim73/colors/torte.vim
-rm -v /usr/share/vim/vim73/colors/zellner.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/blue.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/darkblue.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/delek.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/elflord.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/evening.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/koehler.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/morning.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/pablo.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/peachpuff.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/ron.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/shine.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/torte.vim
+rm -v /usr/share/vim/$VIM_VERSION/colors/zellner.vim
 
 
 
@@ -254,7 +260,7 @@ rm -v /usr/share/vim/vim73/colors/zellner.vim
 echo
 echo "Installing 256 color schemes..."
 echo "--------------------------------------------------------------------------------"
-cd /usr/share/vim/vim73/colors/
+cd /usr/share/vim/$VIM_VERSION/colors/
 # Remove old versions of color schemes we are about to download
 rm -f jellybeans.vim
 rm -f desert256.vim
@@ -268,9 +274,9 @@ echo "Installing modified colorschemes Aldmeris, Distinguished and Jellybeans...
 echo "--------------------------------------------------------------------------------"
 echo
 
-cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/aldmeris.vim /usr/share/vim/vim73/colors/
-cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/distinguished.vim /usr/share/vim/vim73/colors/
-cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/jellybeans.vim /usr/share/vim/vim73/colors/
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/aldmeris.vim /usr/share/vim/$VIM_VERSION/colors/
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/distinguished.vim /usr/share/vim/$VIM_VERSION/colors/
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/jellybeans.vim /usr/share/vim/$VIM_VERSION/colors/
 
 
 
