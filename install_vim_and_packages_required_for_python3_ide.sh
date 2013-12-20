@@ -109,6 +109,8 @@ make install
 cd $HOME_DIRECTORY
 rm -rf vim
 
+
+
 # Get the version number of Vim
 VIM_OUTPUT=`vim --version | awk '{ print $5 ; exit  }'`
 VIM_TEMP=`echo $VIM_OUTPUT | sed 's/\.//'`
@@ -116,6 +118,23 @@ VIM_VERSION="vim"$VIM_TEMP
 echo
 echo "The version number of Vim is "$VIM_OUTPUT
 echo "--------------------------------------------------------------------------------"
+
+
+
+# Remove forced default indentation settings from Vim filetype plugins
+echo
+echo "Removing forced default indentation settings from Vim filetype plugins ..."
+echo "--------------------------------------------------------------------------------"
+for OLD_FILENAME in /usr/share/vim/$VIM_VERSION/ftplugin/*
+do
+	NEW_FILENAME="$OLD_FILENAME".orig
+	mv "$OLD_FILENAME" "$NEW_FILENAME"
+
+	# Remove all lines containing one of the setting keywords used for controlling Vim indentation.
+	cat $NEW_FILENAME | grep -Ev 'expandtab' | grep -Ev 'shitwidth' | grep -Ev 'softtabstop' | grep -Ev 'tabstop' > $OLD_FILENAME
+done
+
+
 
 # Exuberant Ctags compilation is needed for tagbar.
 echo
@@ -399,9 +418,6 @@ set tabstop=8
 set shiftwidth=8
 set noexpandtab
 
-" Disable filetype-based indentation settings.
-" Without this the filetype plugins overwrites indent settings defined above.
-filetype plugin indent off
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
