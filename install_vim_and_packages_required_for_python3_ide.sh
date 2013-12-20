@@ -394,6 +394,16 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 set background=dark
 colorscheme desert256
 
+" Vim 7.4 changed how identing works, force the old behaviour to always use tabs with width 8.
+set tabstop=8
+set shiftwidth=8
+set noexpandtab
+
+" Disable filetype-based indentation settings.
+" Without this the filetype plugins overwrites indent settings defined above.
+filetype plugin indent off
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
