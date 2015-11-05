@@ -65,8 +65,6 @@ After installation fire up urxvt and start vim in it :)
 > ./install_vim_and_packages_required_for_python3_ide.sh
 
 
-# Screenshots
-
 ## Toggle line numbers and indent guides on / off
 
 ```ruby
@@ -76,23 +74,11 @@ Toggle line numbers on/off with F2
 Toggle indent guides on/off with F3
 ```
 
-![Desert256](Pictures/Line_numbers-indent_guides.png)
-
 
 ## Tagbar shows the current 'scope' and lets jump to function and variable definitions
 ```ruby
 Toggle Tagbar on/off with F8
 ```
-![Desert256](Pictures/tagbar.png)
-
-
-## Python3 and C syntax checking
-![Desert256](Pictures/desert256-Syntastic-Pyflakes.png)
-
-
-## Complete keywords by pressing Tab
-![Desert256](Pictures/desert256-Supertab.png)
-
 
 ## View documentation for the keyword under cursor
 
@@ -102,39 +88,4 @@ Python3: leader + pw ( \pw )
 ```
 C: leader + cr ( \cr )
 ```
-
-![Desert256](Pictures/desert256-Supertab-Pydocs.png)
-
-# Colorschemes
-
-## Desert256 colorscheme
-![Desert256](Pictures/desert256.png)
-
-
-## Aldmeris256 colorscheme (based on oblivion colorscheme for Gedit)
-![Desert256](Pictures/aldmeris256.png)
-
-
-## Distinguished colorscheme (256 colors)
-![Distinguisged256](Pictures/distinguished.png)
-
-
-## Jellybeans colorscheme (256 colors)
-![Jellybeans256](Pictures/jellybeans.png)
-
-
-## Murphy colorscheme (8 colors)
-![Murphy8](Pictures/murphy.png)
-
-
-## Slate colorscheme (8 colors)
-![Slate8](Pictures/slate.png)
-
-
-## Vims own default colorscheme (8 colors)
-![Vim8](Pictures/vims_own_default_colorscheme.png)
-
-## Desert colorscheme (8 colors)
-![Vim8](Pictures/desert8.png)
-
 

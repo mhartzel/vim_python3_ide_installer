@@ -92,6 +92,7 @@ echo
 echo "Installing dependencies with apt-get ..."
 echo "--------------------------------------------------------------------------------"
 apt-get -y install git mercurial python3 python3-dev libncurses5-dev build-essential rxvt-unicode-256color xfonts-terminus xclip
+if [ "$?" != "0" ] ; then echo "Error trying to install vim dependencies" ; exit ; fi
 
 
 
@@ -101,11 +102,16 @@ echo "Compiling and installing vim..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 rm -rf vim
-hg clone http://vim.googlecode.com/hg/ vim
+git clone https://github.com/vim/vim.git
+if [ "$?" != "0" ] ; then echo "Error downloading vim source from git repository" ; exit ; fi
 cd vim
+git pull
+cd src
 ./configure --with-features=normal --enable-python3interp --enable-multibyte --disable-gui --prefix=/usr
 make -j4
+if [ "$?" != "0" ] ; then echo "Error compiling vim" ; exit ; fi
 make install
+if [ "$?" != "0" ] ; then echo "Error trying to install vim" ; exit ; fi
 cd $HOME_DIRECTORY
 rm -rf vim
 
@@ -142,6 +148,7 @@ echo "Compiling and installing Exuberant Ctags (requirement of Tagbar) ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 wget http://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz
+if [ "$?" != "0" ] ; then echo "Error trying to download Ctags" ; exit ; fi
 tar xzvf ctags-5.8.tar.gz
 cd ctags-5.8
 ./configure
@@ -159,6 +166,7 @@ echo "Installing Pyflakes ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 wget https://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.7.3.tar.gz#md5=ec94ac11cb110e6e72cca23c104b66b1
+if [ "$?" != "0" ] ; then echo "Error trying to download Pyflakes" ; exit ; fi
 tar xzvf pyflakes-0.7.3.tar.gz
 cd pyflakes-0.7.3
 /usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.7.3/setup.py install
@@ -182,7 +190,8 @@ fi
 
 mkdir -p .vim/autoload .vim/bundle
 cd .vim/autoload
-wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+if [ "$?" != "0" ] ; then echo "Error trying to download pathogen" ; exit ; fi
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
@@ -195,6 +204,7 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 mkdir -p .vim/plugin .vim/doc .vim/after/syntax
 wget http://www.vim.org/scripts/download_script.php?src_id=3666 -O crefvim.zip
+if [ "$?" != "0" ] ; then echo "Error trying to download C reference documents" ; exit ; fi
 unzip crefvim.zip
 cp crefvim/plugin/crefvim.vim $HOME_DIRECTORY/.vim/plugin/
 cp crefvim/doc/crefvimdoc.txt $HOME_DIRECTORY/.vim/doc/
@@ -212,6 +222,7 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 cd .vim/bundle
 git clone http://github.com/majutsushi/tagbar
+if [ "$?" != "0" ] ; then echo "Error trying to download Tagbar" ; exit ; fi
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
@@ -224,6 +235,7 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 cd .vim/bundle
 git clone https://github.com/scrooloose/syntastic.git
+if [ "$?" != "0" ] ; then echo "Error trying to download Syntastic" ; exit ; fi
 cd syntastic
 git checkout ec434f50b189b3ba990052bd237e1da4f9c9c576
 cd $HOME_DIRECTORY
@@ -238,6 +250,7 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 cd .vim/bundle
 git clone https://github.com/ervandew/supertab.git
+if [ "$?" != "0" ] ; then echo "Error trying to download Supertab" ; exit ; fi
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
@@ -250,6 +263,7 @@ echo "--------------------------------------------------------------------------
 cd $HOME_DIRECTORY
 cd .vim/bundle
 git clone https://github.com/fs111/pydoc.vim.git
+if [ "$?" != "0" ] ; then echo "Error trying to download PyDoc" ; exit ; fi
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
@@ -286,6 +300,7 @@ rm -f desert256.vim
 rm -f distinguished.vim
 rm -f solarized.vim
 wget http://www.vim.org/scripts/download_script.php?src_id=4055 -O desert256.vim
+if [ "$?" != "0" ] ; then echo "Error trying to download desert256 color scheme" ; exit ; fi
 
 # Install modified colorschemes aldmeris, distinguished and jellybeans
 echo
@@ -544,8 +559,29 @@ chown $REAL_USER_NAME:$REAL_USER_NAME .xsession
 
 
 echo
+echo "Installation is ready :)"
+echo
 echo "You must restart X for urxvt - terminal changes to take effect or execute the command: xrdb -merge ~/.Xresources"
+echo "-----------------------------------------------------------------------------------------------------------------"
 echo
-echo "Done :)"
+echo "As an additional step I can copy vim settings also to the user root"
+echo "This lets you have vim configured correctly when you use sudo or do something as root"
 echo
+echo "If you don't want this then press ctrl + c now."
+echo
+read -p "Press [Enter] key to start.."
+echo
+
+cd $HOME_DIRECTORY
+rm -rf /root/.vim                                                                                                                                                                                                    
+rm -f /root/.vim*
+mkdir -p /root/.vim
+cp -r .vim/ /root/
+cp .vimrc /root/
+
+
+echo
+echo "Settings copied :)"
+echo
+
 
