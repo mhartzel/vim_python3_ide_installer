@@ -236,8 +236,9 @@ cd $HOME_DIRECTORY
 cd .vim/bundle
 git clone https://github.com/scrooloose/syntastic.git
 if [ "$?" != "0" ] ; then echo "Error trying to download Syntastic" ; exit ; fi
-cd syntastic
-git checkout ec434f50b189b3ba990052bd237e1da4f9c9c576
+# A older version needed to be cehecked out of the git repository in 2013 to work around a bug that got introduced in a newer version
+# cd syntastic
+# git checkout ec434f50b189b3ba990052bd237e1da4f9c9c576
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
