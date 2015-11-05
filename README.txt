@@ -56,7 +56,7 @@ After installation fire up urxvt and start vim in it :)
 
 # Installation
 
-### Requirements:Debian, Ubuntu or another Debian based Linux disto
+### Requirements: Debian, Ubuntu or another Debian based Linux distro
 
 > git clone https://github.com/mhartzel/vim_python3_ide_installer.git
 
