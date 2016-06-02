@@ -385,6 +385,9 @@ noremap <F4> :set wrap!<CR>
 " Disable autoindent for pasting when F5 is pressed
 set pastetoggle=<f5>
 
+" Go to next window when pressing F6
+map <F6> <C-W>w
+
 " Open Tagbar plugin window when F8 is pressed
 nmap <F8> :TagbarToggle<CR>
 

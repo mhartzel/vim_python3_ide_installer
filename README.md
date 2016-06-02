@@ -34,6 +34,7 @@ After installation you have:
 - F3 - turns on/off ident guidelines
 - F4 - turns on/off line wrapping
 - F5 - turns on/off automatic identation (needs to be turned off when pasting text into vim).
+- F6 - jump to next window
 - F8 - turns on/off Tagbar.
 - Tagbar shows your function names and variables in a small window on the right side of vim display.
 - Tagbar also shows you the 'scope' meaning it highlights the function name the current code line belongs to.
