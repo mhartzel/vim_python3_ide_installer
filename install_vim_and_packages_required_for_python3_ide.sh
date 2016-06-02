@@ -165,14 +165,12 @@ echo
 echo "Installing Pyflakes ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
-wget https://pypi.python.org/packages/source/p/pyflakes/pyflakes-0.7.3.tar.gz#md5=ec94ac11cb110e6e72cca23c104b66b1
+git clone https://github.com/pyflakes/pyflakes.git
 if [ "$?" != "0" ] ; then echo "Error trying to download Pyflakes" ; exit ; fi
-tar xzvf pyflakes-0.7.3.tar.gz
-cd pyflakes-0.7.3
-/usr/bin/env python3 $HOME_DIRECTORY/pyflakes-0.7.3/setup.py install
+cd pyflakes
+/usr/bin/env python3 $HOME_DIRECTORY/pyflakes/setup.py install
 cd ..
-rm -rf pyflakes-0.7.3
-rm -f pyflakes-0.7.3.tar.gz
+rm -rf pyflakes
 
 
 
