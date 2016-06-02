@@ -380,7 +380,7 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 noremap <F3> :set list! listchars=tab:\.\ <CR>
 
 " Toggle line wrap when pressing F4                                                                                                                
-noremap <F4> :set wrap!<CR> 
+noremap <F4> :set wrap!<CR>
 
 " Disable autoindent for pasting when F5 is pressed
 set pastetoggle=<f5>
