@@ -326,9 +326,6 @@ cat > .vimrc << 'END_OF_FILE'
 call pathogen#infect()
 call pathogen#helptags()
 
-" Open Tagbar plugin window when F8 is pressed
-nmap <F8> :TagbarToggle<CR>
-
 " Set on syntax highlighting, indentation, and line numbering
 syntax on
 filetype plugin on
@@ -381,8 +378,17 @@ set viminfo^=%
 " Display line numbers when F2 is pressed
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
+" Show indentation guides when pressing F3.
+noremap <F3> :set list! listchars=tab:\.\ <CR>
+
+" Toggle line wrap when pressing F4                                                                                                                
+noremap <F4> :set wrap!<CR> 
+
 " Disable autoindent for pasting when F5 is pressed
 set pastetoggle=<f5>
+
+" Open Tagbar plugin window when F8 is pressed
+nmap <F8> :TagbarToggle<CR>
 
 " Set characer set encoding to UTF-8
 set encoding=utf-8
@@ -409,15 +415,15 @@ set cmdheight=1
 " The following command forces '' to always jump back to last cursor position.                          
 :map '' ``
 
-" Show indentation guides when pressing F3.
-noremap <F3> :set list! listchars=tab:\.\ <CR>
-
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Configure Syntastic to open error window when errors are detected
 let g:syntastic_auto_loc_list = 1
+
+" Configure Syntastic to use pyflakes for Python syntax checking
+let g:syntastic_python_checkers = ["pyflakes"] 
 
 " Configure Supertab to complete python3 commands when pressing TAB and showing description of commands in a window.
 au FileType python set omnifunc=python3complete#Complete
