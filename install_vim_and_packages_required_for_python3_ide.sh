@@ -548,12 +548,12 @@ END_OF_FILE
 chown $REAL_USER_NAME:$REAL_USER_NAME .Xresources
 
 
-# Write configuration information to ~/.xsession
+# Write configuration information to ~/.xsessionrc
 echo
-echo "Writing configuration to ~/.xsession..."
+echo "Writing configuration to ~/.xsessionrc..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
-cat > .xsession << 'END_OF_FILE'
+cat > .xsessionrc << 'END_OF_FILE'
 
 # Load settings from file ~./Xresources every time the user logs in.
 
@@ -563,7 +563,7 @@ fi
 
 END_OF_FILE
 
-chown $REAL_USER_NAME:$REAL_USER_NAME .xsession
+chown $REAL_USER_NAME:$REAL_USER_NAME .xsessionrc
 
 
 echo
