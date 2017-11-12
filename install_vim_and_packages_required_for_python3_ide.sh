@@ -97,8 +97,9 @@ if [ "$?" != "0" ] ; then echo "Error trying to install vim dependencies" ; exit
 
 
 # Compile and install vim.
+NUMBER_OF_CORES=`cat /proc/cpuinfo | grep -i processor | grep ': [0-9][0-9][0-9]\|[0-9][0-9]\|[0-9]' | wc -l`
 echo
-echo "Compiling and installing vim..."
+echo "Cloning Vim git repository..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 rm -rf vim
@@ -108,7 +109,10 @@ cd vim
 git pull
 cd src
 ./configure --with-features=normal --enable-python3interp --enable-multibyte --disable-gui --prefix=/usr
-make -j4
+echo
+echo "Compiling Vim using "$NUMBER_OF_CORES" processor cores..."
+echo "--------------------------------------------------------------------------------"
+make -j$NUMBER_OF_CORES
 if [ "$?" != "0" ] ; then echo "Error compiling vim" ; exit ; fi
 make install
 if [ "$?" != "0" ] ; then echo "Error trying to install vim" ; exit ; fi
@@ -137,7 +141,7 @@ do
 	mv "$OLD_FILENAME" "$NEW_FILENAME"
 
 	# Remove all lines containing one of the setting keywords used for controlling Vim indentation.
-	cat $NEW_FILENAME | grep -Ev 'expandtab' | grep -Ev 'shitwidth' | grep -Ev 'softtabstop' | grep -Ev 'tabstop' > $OLD_FILENAME
+	cat $NEW_FILENAME | grep -Ev 'expandtab' | grep -Ev 'shiftwidth' | grep -Ev 'softtabstop' | grep -Ev 'tabstop' > $OLD_FILENAME
 done
 
 

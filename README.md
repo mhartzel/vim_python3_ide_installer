@@ -2,8 +2,10 @@
 
 This is my shell script to install vim and other packages so that I can use vim as my Python3 and C development environment.
 
-###This version of the install script is for Debian / Ubuntu.
+### This version of the install script is for Debian / Ubuntu.
 Gentoo install script can be found here: https://github.com/mhartzel/vim_python3_ide_installer-gentoo
+
+Manjaro install script can be found here: https://github.com/mhartzel/vim_python3_ide_installer-manjaro
 
 This program will do the following things:
 - Uninstall previous vim packages and old vim configuration.
