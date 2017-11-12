@@ -76,22 +76,22 @@ Toggle line numbers on/off with F2
 Toggle indent guides on/off with F3
 ```
 
-![aldmeris](Pictures/Line_numbers-indent_guides.png)
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/Line_numbers-indent_guides.png)
 
 
 ## Tagbar shows the current 'scope' and lets jump to function and variable definitions
 ```ruby
 Toggle Tagbar on/off with F8
 ```
-![aldmeris](Pictures/tagbar.png)
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/tagbar.png)
 
 
 ## Python3 and C syntax checking
-![aldmeris](Pictures/aldmeris-Syntastic-Pyflakes.png)
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Syntastic-Pyflakes.png)
 
 
 ## Complete keywords by pressing Tab
-![aldmeris](Pictures/aldmeris-Supertab.png)
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Supertab.png)
 
 
 ## View documentation for the keyword under cursor
@@ -103,38 +103,38 @@ Python3: leader + pw ( \pw )
 C: leader + cr ( \cr )
 ```
 
-![aldmeris](Pictures/aldmeris-Supertab-Pydocs.png)
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Supertab-Pydocs.png)
 
 # Colorschemes
 
 ## Desert256 colorscheme
-![Desert256](Pictures/desert256.png)
+![Desert256](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/desert256.png)
 
 
 ## Aldmeris256 colorscheme (based on oblivion colorscheme for Gedit)
-![Desert256](Pictures/aldmeris256.png)
+![Desert256](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris256.png)
 
 
 ## Distinguished colorscheme (256 colors)
-![Distinguisged256](Pictures/distinguished.png)
+![Distinguisged256](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/distinguished.png)
 
 
 ## Jellybeans colorscheme (256 colors)
-![Jellybeans256](Pictures/jellybeans.png)
+![Jellybeans256](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/jellybeans.png)
 
 
 ## Murphy colorscheme (8 colors)
-![Murphy8](Pictures/murphy.png)
+![Murphy8](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/murphy.png)
 
 
 ## Slate colorscheme (8 colors)
-![Slate8](Pictures/slate.png)
+![Slate8](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/slate.png)
 
 
 ## Vims own default colorscheme (8 colors)
-![Vim8](Pictures/vims_own_default_colorscheme.png)
+![Vim8](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/vims_own_default_colorscheme.png)
 
 ## Desert colorscheme (8 colors)
-![Vim8](Pictures/desert8.png)
+![Vim8](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/desert8.png)
 
 
