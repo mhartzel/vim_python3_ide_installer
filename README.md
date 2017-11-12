@@ -76,22 +76,22 @@ Toggle line numbers on/off with F2
 Toggle indent guides on/off with F3
 ```
 
-![Desert256](Pictures/Line_numbers-indent_guides.png)
+![aldmeris](Pictures/Line_numbers-indent_guides.png)
 
 
 ## Tagbar shows the current 'scope' and lets jump to function and variable definitions
 ```ruby
 Toggle Tagbar on/off with F8
 ```
-![Desert256](Pictures/tagbar.png)
+![aldmeris](Pictures/tagbar.png)
 
 
 ## Python3 and C syntax checking
-![Desert256](Pictures/desert256-Syntastic-Pyflakes.png)
+![aldmeris](Pictures/aldmeris-Syntastic-Pyflakes.png)
 
 
 ## Complete keywords by pressing Tab
-![Desert256](Pictures/desert256-Supertab.png)
+![aldmeris](Pictures/aldmeris-Supertab.png)
 
 
 ## View documentation for the keyword under cursor
@@ -103,7 +103,7 @@ Python3: leader + pw ( \pw )
 C: leader + cr ( \cr )
 ```
 
-![Desert256](Pictures/desert256-Supertab-Pydocs.png)
+![aldmeris](Pictures/aldmeris-Supertab-Pydocs.png)
 
 # Colorschemes
 

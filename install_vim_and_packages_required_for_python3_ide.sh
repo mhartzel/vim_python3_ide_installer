@@ -438,7 +438,7 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 
 " Colorscheme
 set background=dark
-colorscheme desert256
+colorscheme aldmeris
 
 " Vim 7.4 changed how identing works, force the old behaviour to always use tabs with width 8.
 set tabstop=8
