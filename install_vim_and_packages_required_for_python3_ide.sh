@@ -477,41 +477,6 @@ chown $REAL_USER_NAME:$REAL_USER_NAME .vimrc
 
 
 
-# Enable copy paste between urxvt and graphical programs
-echo
-echo "Writing urxvt copy / paste perl script..."
-echo "--------------------------------------------------------------------------------"
-cd $HOME_DIRECTORY
-cat > /usr/lib/urxvt/perl/clipboard << 'END_OF_FILE'
-
-#script to copy/paste text in URXVT
-
-#! perl
-
-sub on_sel_grab {
-    my $query = $_[0]->selection;
-    open (my $pipe,'| /usr/bin/xclip -in -selection clipboard') or die;
-    print $pipe $query;
-    close $pipe;
-}
-
-sub paste {
-    my ($self) = @_;
-    my $content = `/usr/bin/xclip -loop 1 -out -selection clipboard` ;
-    $self->tt_write ($content);
-}
-
-sub on_user_command {
-    my ($self, $cmd) = @_;
-    if ($cmd eq "clipboard:paste") {
-        $self->paste;
-    }
-}
-
-END_OF_FILE
-
-
-
 # Write configuration information to ~/.Xresources
 echo
 echo "Writing ~/.Xresources"

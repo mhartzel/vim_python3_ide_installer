@@ -22,7 +22,7 @@ This program will do the following things:
 After installation you have:
 
 - A 256 color and UTF-8 capable terminal emulator urxvt.
-- Basic copy / paste functionality between urxvt and other programs.
+- Copy / paste between urxvt and other programs with ctrl + alt + c  and  ctrl + alt + v
 - Python3 syntax checking (every time you save).
 - Python3 syntax highlighting.
 - Python3 documentation for the keyword under cursor opens with leader + pw  ( \pw  NOTE second character must be pressed within 1 second ).
@@ -50,10 +50,6 @@ After installation you have:
 
 After installation fire up urxvt and start vim in it :)
 
-
-
-- Copy paste in urxvt works like this: text highlighted in urxvt is immediately copied to clipboard when you release the mouse button. Paste with: shift + ctrl +v.
-- Copy / paste works between most graphical programs and urxvt, but with for example Gmail it does not work. You can overcome this by installing the small and lightweight clipboard manager: parcellite. As a bonus it remembers your previous clipboard texts also :)
 
 
 # Installation
