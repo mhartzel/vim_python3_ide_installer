@@ -103,7 +103,8 @@ echo "Cloning Vim git repository..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 rm -rf vim
-git clone https://github.com/vim/vim.git
+# The option --depth 1 only clones the latest commit from the repo resulting in downloading only about 10% of the repo and faster download.
+git clone --depth 1 https://github.com/vim/vim.git
 if [ "$?" != "0" ] ; then echo "Error downloading vim source from git repository" ; exit ; fi
 cd vim
 git pull
