@@ -3,6 +3,7 @@
 This is my shell script to install vim and other packages so that I can use vim as my Python3 and C development environment.
 
 ### This version of the install script is for Debian / Ubuntu.
+
 Gentoo install script can be found here: https://github.com/mhartzel/vim_python3_ide_installer-gentoo
 
 Manjaro install script can be found here: https://github.com/mhartzel/vim_python3_ide_installer-manjaro
@@ -14,6 +15,10 @@ This program will do the following things:
 - Install vim plugins Pathogen and Tagbar to make vim an IDE.
 - Install Syntastic and Pyflakes.
 - Install Supertab and Pydoc.
+- Install vim-gitgutter.
+- Install git-fugitive.
+- Install Nerdtree.
+- Install Surround.
 - Install C language reference documents.
 - Remove most color schemes that come with vim, leaving only: default, desert, murphy and slate.
 - Install 256 color vim colorschemes: desert256, distinguished, jellybeans, aldmeris (based on oblivion colorscheme for Gedit).
@@ -37,11 +42,17 @@ After installation you have:
 - F4 - turns on/off line wrapping
 - F5 - turns on/off automatic identation (needs to be turned off when pasting text into vim).
 - F6 - jump to next window
+- F7 - open nerdtree to navigate the filesystem.
 - F8 - turns on/off Tagbar.
+- F9 - turns gitgutter on /off
 - Tagbar shows your function names and variables in a small window on the right side of vim display.
 - Tagbar also shows you the 'scope' meaning it highlights the function name the current code line belongs to.
 - Pressing enter in Tagbar window on a function name makes the main window jump to that function.
 - Matching brackets are automatically highlighted.
+- Vim-Gitgutter shows what lines you have changed since committing that file to git (display refreshes every 4 seconds)
+- Nerdtree lets you navigate the filesystem and open files.
+- Git-fugitive lets you commit to your git repository right from vim.
+- Surround lets you easily add change quotes, brakets, etc around a text block: https://github.com/tpope/vim-surround
 - Search results are highlighted.
 - Case is ignored in search.
 - Vim remembers the code line that you were in last time the file was open.
@@ -83,14 +94,22 @@ Toggle indent guides on/off with F3
 ```ruby
 Toggle Tagbar on/off with F8
 ```
+> http://github.com/majutsushi/tagbar
+
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/tagbar.png)
 
 
 ## Python3 and C syntax checking
+> https://github.com/vim-syntastic/syntastic
+
+> https://github.com/pyflakes/pyflakes.git
+
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Syntastic-Pyflakes.png)
 
 
 ## Complete keywords by pressing Tab
+> https://github.com/ervandew/supertab.git
+
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Supertab.png)
 
 
@@ -102,8 +121,39 @@ Python3: leader + pw ( \pw )
 ```
 C: leader + cr ( \cr )
 ```
+> https://github.com/fs111/pydoc.vim.git
 
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Supertab-Pydocs.png)
+
+
+## Vim-Gitgutter shows what lines you have changes since committing that file to git (display refreshes every 4 seconds).
+```ruby
+Toggle Gitgutter on/off with F9
+```
+> https://github.com/airblade/vim-gitgutter
+
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer-manjaro/master/Pictures/aldmeris-256-gitgutter.png)
+
+
+## Nerdtree lets you navigate the filesystem and open files.
+```ruby
+Open Nerdtree with F7 and close with q 
+```
+> https://github.com/scrooloose/nerdtree
+
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer-manjaro/master/Pictures/aldmeris-nerdtree.png)
+
+
+## Git-fugitive lets you commit to your git repository right from vim.
+```ruby
+Gwrite or Gw = git add .
+Gstatus or Gst = git status
+Gcommit or Gco = git commit
+```
+> https://github.com/tpope/vim-fugitive
+
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer-manjaro/master/Pictures/aldmeris-git-fugitive.png)
+
 
 # Colorschemes
 
