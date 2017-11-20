@@ -273,6 +273,58 @@ chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
 
+# vim-fugitive
+echo
+echo "Installing Vim-Fugitive"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/tpope/vim-fugitive.git
+if [ "$?" != "0" ] ; then echo "Error trying to download Vim-Fugitive" ; exit ; fi
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+# GitGutter
+echo
+echo "Installing GitGutter"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone git://github.com/airblade/vim-gitgutter.git
+if [ "$?" != "0" ] ; then echo "Error trying to download GitGutter" ; exit ; fi
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+# Nerdtree
+echo
+echo "Installing Nerdtree"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/scrooloose/nerdtree.git
+if [ "$?" != "0" ] ; then echo "Error trying to download Nerdtree" ; exit ; fi
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
+# Surround
+echo
+echo "Installing Surround"
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/tpope/vim-surround
+if [ "$?" != "0" ] ; then echo "Error trying to download Surround" ; exit ; fi
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
+
+
+
 # Remove bad looking color schemes that ship with vim
 echo
 echo "Deleting bad color schemes that ship with vim..."
@@ -378,6 +430,10 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+" Set the pydoc info window to 50% size of vim window.
+" Pydoc shows docs for python words under cursor with \pw.
+let g:pydoc_window_lines=0.5
+
 " Display line numbers when F2 is pressed
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
@@ -393,8 +449,16 @@ set pastetoggle=<f5>
 " Go to next window when pressing F6
 map <F6> <C-W>w
 
+" Open NERDTree window by pressing F7
+noremap <F7> :NERDTree<CR>
+
 " Open Tagbar plugin window when F8 is pressed
 nmap <F8> :TagbarToggle<CR>
+
+" Toggle GitGutter display by pressing F9
+" First turn it off by default
+let g:gitgutter_enabled = 0
+noremap <F9> :GitGutterToggle<CR>
 
 " Set characer set encoding to UTF-8
 set encoding=utf-8
