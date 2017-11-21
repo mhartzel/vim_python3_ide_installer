@@ -292,7 +292,7 @@ echo "Installing GitGutter"
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 cd .vim/bundle
-git clone git://github.com/airblade/vim-gitgutter.git
+git clone https://github.com/airblade/vim-gitgutter.git
 if [ "$?" != "0" ] ; then echo "Error trying to download GitGutter" ; exit ; fi
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
