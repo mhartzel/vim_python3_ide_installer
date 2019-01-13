@@ -91,7 +91,7 @@ rm -rf "$REAL_USER_NAME/vim*"
 echo
 echo "Installing dependencies with apt-get ..."
 echo "--------------------------------------------------------------------------------"
-apt-get -y install git python3 python3-dev libncurses5-dev build-essential rxvt-unicode-256color xfonts-terminus xclip
+apt-get -y install git python3 python3-dev libncurses5-dev build-essential rxvt-unicode-256color xfonts-terminus xclip wget
 if [ "$?" != "0" ] ; then echo "Error trying to install vim dependencies" ; exit ; fi
 
 
@@ -413,6 +413,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" ctrl + a and ctrl + x increments character / number under cursor
+set nrformats=alpha
+
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set noswapfile
@@ -494,6 +497,9 @@ let g:syntastic_auto_loc_list = 1
 
 " Configure Syntastic to use pyflakes for Python syntax checking
 let g:syntastic_python_checkers = ["pyflakes"] 
+
+" Configure Syntastic Go syntax checker
+let g:syntastic_go_checkers = ["gotype"]
 
 " Configure Supertab to complete python3 commands when pressing TAB and showing description of commands in a window.
 au FileType python set omnifunc=python3complete#Complete
