@@ -511,6 +511,10 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 set background=dark
 colorscheme aldmeris
 
+" Change statusline color in Insertmode
+au InsertEnter * hi StatusLine ctermfg=2 ctermbg=0 cterm=reverse,bold
+au InsertLeave * hi StatusLine ctermfg=NONE ctermbg=NONE cterm=reverse,bold
+
 " Vim 7.4 changed how identing works, force the old behaviour to always use tabs with width 8.
 set tabstop=8
 set shiftwidth=8

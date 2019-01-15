@@ -98,6 +98,8 @@ Toggle Tagbar on/off with F8
 
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/tagbar.png)
 
+## Statusline changes color to green when vim is in Insert - mode
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/statusline.png)
 
 ## Python3 and C syntax checking
 > https://github.com/vim-syntastic/syntastic
