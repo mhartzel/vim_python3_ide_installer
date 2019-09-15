@@ -35,6 +35,7 @@ After installation you have:
 - Python3 documentation for the keyword under cursor opens with leader + pw  ( \pw  NOTE second character must be pressed within 1 second ).
 - C syntax checking (every time you save)
 - C syntax highlighting.
+- C++17 syntax checking (every time you save)
 - C reference documentation for the keyword under cursor opens with leader + cr  ( \cr  NOTE second character must be pressed within 1 second ).
 - The current line is underlined with a single pixel white line (all colorschemes). 
 - F2 - turns on/off line numbers.

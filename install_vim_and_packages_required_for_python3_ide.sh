@@ -501,6 +501,9 @@ let g:syntastic_python_checkers = ["pyflakes"]
 " Configure Syntastic Go syntax checker
 let g:syntastic_go_checkers = ["gotype"]
 
+" Configure Syntastic to use the C++17 standard version of the C++ language
+let g:syntastic_cpp_compiler_options = '-std=c++17'
+
 " Configure Supertab to complete python3 commands when pressing TAB and showing description of commands in a window.
 au FileType python set omnifunc=python3complete#Complete
 let g:SuperTabDefaultCompletionType = "context"
