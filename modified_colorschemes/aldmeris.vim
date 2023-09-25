@@ -376,4 +376,4 @@ hi link cssPseudoClassId Identifier
 " vim: set fdm=marker:
 
 " Modification to the original colorscheme, remove this line if you prefer the original colorscheme
-hi CursorLine cterm=NONE,underline ctermbg=None  guibg=None
+hi CursorLine cterm=NONE,underline ctermbg=None

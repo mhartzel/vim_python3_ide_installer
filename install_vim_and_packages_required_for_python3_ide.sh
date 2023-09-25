@@ -147,21 +147,20 @@ done
 
 
 
-# Exuberant Ctags compilation is needed for tagbar.
+# Universal Ctags compilation is needed for tagbar.
 echo
-echo "Compiling and installing Exuberant Ctags (requirement of Tagbar) ..."
+echo "Compiling and installing Universal Ctags (requirement of Tagbar) ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
-wget http://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz
-if [ "$?" != "0" ] ; then echo "Error trying to download Ctags" ; exit ; fi
-tar xzvf ctags-5.8.tar.gz
-cd ctags-5.8
+git clone https://github.com/universal-ctags/ctags.git
+if [ "$?" != "0" ] ; then echo "Error trying to download Universal Ctags" ; exit ; fi
+cd ctags
+./autogen.sh
 ./configure
 make
 make install
 cd ..
-rm -rf ctags-5.8
-rm -f ctags-5.8.tar.gz
+rm -rf ctags
 
 
 
@@ -206,15 +205,13 @@ echo "Installing C language reference documents ..."
 echo "--------------------------------------------------------------------------------"
 cd $HOME_DIRECTORY
 mkdir -p .vim/plugin .vim/doc .vim/after/syntax
-wget http://www.vim.org/scripts/download_script.php?src_id=3666 -O crefvim.zip
+git clone https://github.com/vim-scripts/CRefVim.git
 if [ "$?" != "0" ] ; then echo "Error trying to download C reference documents" ; exit ; fi
-unzip crefvim.zip
-cp crefvim/plugin/crefvim.vim $HOME_DIRECTORY/.vim/plugin/
-cp crefvim/doc/crefvimdoc.txt $HOME_DIRECTORY/.vim/doc/
-cp crefvim/doc/crefvim.txt $HOME_DIRECTORY/.vim/doc/
-cp crefvim/after/syntax/help.vim $HOME_DIRECTORY/.vim/after/syntax
-rm -rf crefvim
-rm -f crefvim.zip
+cp CRefVim/plugin/crefvim.vim $HOME_DIRECTORY/.vim/plugin/
+cp CRefVim/doc/crefvimdoc.txt $HOME_DIRECTORY/.vim/doc/
+cp CRefVim/doc/crefvim.txt $HOME_DIRECTORY/.vim/doc/
+cp CRefVim/after/syntax/help.vim $HOME_DIRECTORY/.vim/after/syntax
+rm -rf CRefVim
 
 
 
@@ -355,8 +352,6 @@ rm -f jellybeans.vim
 rm -f desert256.vim
 rm -f distinguished.vim
 rm -f solarized.vim
-wget http://www.vim.org/scripts/download_script.php?src_id=4055 -O desert256.vim
-if [ "$?" != "0" ] ; then echo "Error trying to download desert256 color scheme" ; exit ; fi
 
 # Install modified colorschemes aldmeris, distinguished and jellybeans
 echo
@@ -364,6 +359,7 @@ echo "Installing modified colorschemes Aldmeris, Distinguished and Jellybeans...
 echo "--------------------------------------------------------------------------------"
 echo
 
+cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/desert256.vim /usr/share/vim/$VIM_VERSION/colors/
 cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/aldmeris.vim /usr/share/vim/$VIM_VERSION/colors/
 cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/distinguished.vim /usr/share/vim/$VIM_VERSION/colors/
 cp -v $PATH_TO_MODIFIED_COLOR_SCHEMES_DIR/jellybeans.vim /usr/share/vim/$VIM_VERSION/colors/
@@ -452,11 +448,15 @@ set pastetoggle=<f5>
 " Go to next window when pressing F6
 map <F6> <C-W>w
 
-" Open NERDTree window by pressing F7
-noremap <F7> :NERDTree<CR>
+" Toggle NERDTree window by pressing F7
+noremap <F7> ::NERDTreeToggle<CR>
 
 " Open Tagbar plugin window when F8 is pressed
 nmap <F8> :TagbarToggle<CR>
+
+" Open tag under cursor to a new vertical window
+set splitright
+nnoremap <F10> :only<bar>vsplit<CR>:execute "tag " . expand('<cword>')<CR>
 
 " Toggle GitGutter display by pressing F9
 " First turn it off by default
