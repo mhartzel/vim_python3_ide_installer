@@ -91,7 +91,7 @@ rm -rf "$REAL_USER_NAME/vim*"
 echo
 echo "Installing dependencies with apt-get ..."
 echo "--------------------------------------------------------------------------------"
-apt-get -y install git python3 python3-dev libncurses5-dev build-essential rxvt-unicode xfonts-terminus xclip wget autoconf
+apt-get -y install git python3 python3-dev libncurses5-dev build-essential rxvt-unicode xfonts-terminus xclip wget autoconf pkg-config
 if [ "$?" != "0" ] ; then echo "Error trying to install vim dependencies" ; exit ; fi
 
 
