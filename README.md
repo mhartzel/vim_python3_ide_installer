@@ -58,6 +58,7 @@ After installation you have:
 - Vim remembers the code line that you were in last time the file was open.
 - '' is mapped to `` meaning that the command '' returns to the line and character you were on before a jump in the text.
 - Backspace configured to work like it should.
+- Good terminals for a Vim IDE are: LXTerminal, QTerminal, KDE Konsole.
 
 
 
