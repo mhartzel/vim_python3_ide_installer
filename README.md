@@ -124,8 +124,10 @@ C: leader + cr ( \cr )
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Supertab-Pydocs.png)
 
 
-## Show definition of the subroutine
-
+## Show subroutine definition
+```ruby
+Show subroutine definition with F10
+```
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Show_Function_Definition.png)
 
 
