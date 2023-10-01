@@ -63,7 +63,7 @@ echo
 echo "This program will do the following things:"
 echo
 echo "- Uninstall previous vim packages and old vim configuration. Compile and install a new vim with Python3 support."
-echo "- Download and install 256 color capable urxvt terminal emulator and set it up to use the clipboard and the Terminus font ."
+echo "- Download and install 256 color Terminus font ."
 echo "- Install vim plugins Pathogen and Tagbar plugins to make vim a Python3 IDE."
 echo "- Remove most color schemes that comes with vim, leaving only: default, desert, murphy and slate."
 echo "- Install 256 color vim color schemes: desert256, distinguished, jellybeans."
@@ -91,7 +91,7 @@ rm -rf "$REAL_USER_NAME/vim*"
 echo
 echo "Installing dependencies with apt-get ..."
 echo "--------------------------------------------------------------------------------"
-apt-get -y install git python3 python3-dev libncurses5-dev build-essential rxvt-unicode xfonts-terminus xclip wget autoconf pkg-config
+apt-get -y install git python3 python3-dev libncurses5-dev build-essential xfonts-terminus wget autoconf pkg-config
 if [ "$?" != "0" ] ; then echo "Error trying to install vim dependencies" ; exit ; fi
 
 
@@ -138,6 +138,11 @@ echo "Removing forced default indentation settings from Vim filetype plugins ...
 echo "--------------------------------------------------------------------------------"
 for OLD_FILENAME in /usr/share/vim/$VIM_VERSION/ftplugin/*
 do
+	# Exclude file gitcommit.vim and leave it as it is
+	if [ "$OLD_FILENAME" == "gitcommit.vim" ] ; then
+		continue
+	fi
+
 	NEW_FILENAME="$OLD_FILENAME".orig
 	mv "$OLD_FILENAME" "$NEW_FILENAME"
 
@@ -226,6 +231,17 @@ if [ "$?" != "0" ] ; then echo "Error trying to download Tagbar" ; exit ; fi
 cd $HOME_DIRECTORY
 chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
+
+# Gutentags
+echo
+echo "Installing Gutentags..."
+echo "--------------------------------------------------------------------------------"
+cd $HOME_DIRECTORY
+cd .vim/bundle
+git clone https://github.com/ludovicchabant/vim-gutentags.git
+if [ "$?" != "0" ] ; then echo "Error trying to download Gutentags" ; exit ; fi
+cd $HOME_DIRECTORY
+chown -R $REAL_USER_NAME:$REAL_USER_NAME .vim/
 
 
 # Syntastic
@@ -389,7 +405,7 @@ set hlsearch
 " Ignore case in search
 set ignorecase 
 
-" When searching try to be smart about cases 
+" Ignore case if the search term is all lowercase
 set smartcase
 
 " Sets how many lines of history VIM has to remember
@@ -555,68 +571,8 @@ chown $REAL_USER_NAME:$REAL_USER_NAME .vimrc
 
 
 
-# Write configuration information to ~/.Xresources
-echo
-echo "Writing ~/.Xresources"
-echo "--------------------------------------------------------------------------------"
-cd $HOME_DIRECTORY
-cat > .Xresources << 'END_OF_FILE'
-
-! General urxvt config
-URxvt*saveLines:         65535
-URxvt*font: xft:Terminus:pixelsize=14
-
-! Configure urxvt to always open in tabbed mode and to use a clipboard
-URxvt.iso14755: False
-URxvt.perl-ext-common: default,tabbed
-
-! Colors for urxvt
-URxvt*foreground: Wheat
-URxvt*background: Black
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tabbar-fg: 7
-URxvt.tabbed.tab-bg: 0
-URxvt.tabbed.tab-fg: 2
-
-! Make Urxvt use s scrollbar
-URxvt.scrollstyle: rxvt
-URxvt*scrollBar_right: true
-! do not scroll with output
-URxvt*scrollTtyOutput: false
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
-! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
-
-
-END_OF_FILE
-
-chown $REAL_USER_NAME:$REAL_USER_NAME .Xresources
-
-
-# Write configuration information to ~/.xsessionrc
-echo
-echo "Writing configuration to ~/.xsessionrc..."
-echo "--------------------------------------------------------------------------------"
-cd $HOME_DIRECTORY
-cat > .xsessionrc << 'END_OF_FILE'
-
-# Load settings from file ~./Xresources every time the user logs in.
-
-if [ -f $HOME/.Xresources ]; then
-  xrdb -merge ~/.Xresources
-fi
-
-END_OF_FILE
-
-chown $REAL_USER_NAME:$REAL_USER_NAME .xsessionrc
-
-
 echo
 echo "Installation is ready :)"
-echo
-echo "You must restart X for urxvt - terminal changes to take effect or execute the command: xrdb -merge ~/.Xresources"
-echo "-----------------------------------------------------------------------------------------------------------------"
 echo
 echo "As an additional step I can copy vim settings also to the user root"
 echo "This lets you have vim configured correctly when you use sudo or do something as root"
@@ -636,6 +592,16 @@ cp .vimrc /root/
 
 echo
 echo "Settings copied :)"
+echo
+echo "Good terminals for a Vim IDE are:"
+echo
+echo "LXTerminal"
+echo "QTerminal"
+echo "KDE Konsole"
+echo
+echo "Some of these needs to be configured to not capture the 'F2 - F10 keys' so that Vim can use them."
+echo "Select the Terminus font as the default font for the Terminal and start writing code :)"
+echo
 echo
 
 

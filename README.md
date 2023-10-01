@@ -4,17 +4,16 @@ This is my shell script to install vim and other packages so that I can use vim 
 
 ### This version of the install script is for Debian / Ubuntu.
 
-Gentoo install script can be found here: https://github.com/mhartzel/vim_python3_ide_installer-gentoo
-
 Manjaro install script can be found here: https://github.com/mhartzel/vim_python3_ide_installer-manjaro
 
 This program will do the following things:
 - Uninstall previous vim packages and old vim configuration.
 - Download latest vim source from git repository. Compile and install a new vim with Python3 support.
-- Download and install 256 color capable urxvt terminal emulator and set it up to use clipboard and the Terminus font. Urxvt is the fastest terminal I found and it supports unicode characters and tabs. Terminus font makes code easier to read.
+- Download and install 256 color Terminus font.
 - Install vim plugins Pathogen and Tagbar to make vim an IDE.
 - Install Syntastic and Pyflakes.
 - Install Supertab and Pydoc.
+- Install Gutentags
 - Install vim-gitgutter.
 - Install git-fugitive.
 - Install Nerdtree.
@@ -28,8 +27,6 @@ This program will do the following things:
 
 After installation you have:
 
-- A 256 color and UTF-8 capable terminal emulator urxvt.
-- Copy / paste between urxvt and other programs with ctrl + alt + c  and  ctrl + alt + v
 - Python3 syntax checking (every time you save).
 - Python3 syntax highlighting.
 - Python3 documentation for the keyword under cursor opens with leader + pw  ( \pw  NOTE second character must be pressed within 1 second ).
@@ -37,6 +34,7 @@ After installation you have:
 - C syntax highlighting.
 - C++17 syntax checking (every time you save)
 - C reference documentation for the keyword under cursor opens with leader + cr  ( \cr  NOTE second character must be pressed within 1 second ).
+- Gutentags will automatically create a tag - file for subroutines in your code when you open it up for editing.
 - The current line is underlined with a single pixel white line (all colorschemes). 
 - F2 - turns on/off line numbers.
 - F3 - turns on/off ident guidelines
@@ -46,6 +44,7 @@ After installation you have:
 - F7 - open nerdtree to navigate the filesystem.
 - F8 - turns on/off Tagbar.
 - F9 - turns gitgutter on /off
+- F10 - Show subroutine definition for the one under cursor even if the definition is in another file in the project
 - Tagbar shows your function names and variables in a small window on the right side of vim display.
 - Tagbar also shows you the 'scope' meaning it highlights the function name the current code line belongs to.
 - Pressing enter in Tagbar window on a function name makes the main window jump to that function.
@@ -59,10 +58,6 @@ After installation you have:
 - Vim remembers the code line that you were in last time the file was open.
 - '' is mapped to `` meaning that the command '' returns to the line and character you were on before a jump in the text.
 - Backspace configured to work like it should.
-
-
-
-After installation fire up urxvt and start vim in it :)
 
 
 
@@ -102,7 +97,7 @@ Toggle Tagbar on/off with F8
 ## Statusline changes color to green when vim is in Insert - mode
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/statusline.png)
 
-## Python3 and C syntax checking
+## Python3, C, C++, etc syntax checking
 > https://github.com/vim-syntastic/syntastic
 
 > https://github.com/pyflakes/pyflakes.git
@@ -129,7 +124,12 @@ C: leader + cr ( \cr )
 ![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Supertab-Pydocs.png)
 
 
-## Vim-Gitgutter shows what lines you have changes since committing that file to git (display refreshes every 4 seconds).
+## Show definition of the subroutine
+
+![aldmeris](https://raw.githubusercontent.com/mhartzel/vim_python3_ide_installer/master/Pictures/aldmeris-Show_Function_Definition.png)
+
+
+## Vim-Gitgutter shows what lines you have changed since committing that file to git (display refreshes every 4 seconds).
 ```ruby
 Toggle Gitgutter on/off with F9
 ```
