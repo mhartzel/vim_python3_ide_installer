@@ -136,18 +136,20 @@ echo "--------------------------------------------------------------------------
 echo
 echo "Removing forced default indentation settings from Vim filetype plugins ..."
 echo "--------------------------------------------------------------------------------"
-for OLD_FILENAME in /usr/share/vim/$VIM_VERSION/ftplugin/*
+for OLD_PATH in /usr/share/vim/$VIM_VERSION/ftplugin/*
 do
 	# Exclude file gitcommit.vim and leave it as it is
-	if [ "$OLD_FILENAME" == "gitcommit.vim" ] ; then
-		continue
-	fi
+        FILENAME=$( basename $OLD_PATH )
 
-	NEW_FILENAME="$OLD_FILENAME".orig
-	mv "$OLD_FILENAME" "$NEW_FILENAME"
+        if [ "$FILENAME" == "gitcommit.vim" ] ; then
+                continue
+        fi
+
+	NEW_PATH="$OLD_PATH".orig
+	mv "$OLD_PATH" "$NEW_PATH"
 
 	# Remove all lines containing one of the setting keywords used for controlling Vim indentation.
-	cat $NEW_FILENAME | grep -Ev 'expandtab' | grep -Ev 'shiftwidth' | grep -Ev 'softtabstop' | grep -Ev 'tabstop' > $OLD_FILENAME
+	cat $NEW_PATH | grep -Ev 'expandtab' | grep -Ev 'shiftwidth' | grep -Ev 'softtabstop' | grep -Ev 'tabstop' > $OLD_PATH
 done
 
 
@@ -600,7 +602,7 @@ echo "QTerminal"
 echo "KDE Konsole"
 echo
 echo "Some of these needs to be configured to not capture the 'F2 - F10 keys' so that Vim can use them."
-echo "Select the Terminus font as the default font for the Terminal and start writing code :)"
+echo "Select a mono font like Terminus, Liberation Mono, Droid Sans Mono, Nimbus Mono as the default font for the Terminal and start writing code :)"
 echo
 echo
 
