@@ -91,10 +91,16 @@ rm -rf "$REAL_USER_NAME/vim*"
 echo
 echo "Installing dependencies with apt-get ..."
 echo "--------------------------------------------------------------------------------"
-apt-get -y install git python3 python3-dev libncurses5-dev build-essential xfonts-terminus wget autoconf pkg-config
+apt-get -y install git python3 python3-dev libncurses5-dev build-essential xfonts-terminus wget autoconf pkg-config python3-pyflakes pyflakes3
 if [ "$?" != "0" ] ; then echo "Error trying to install vim dependencies" ; exit ; fi
 
+# Move MC program view out of the way as vim installation will try to ln vim also as view.
+# View - program will be returned back at end of installation
 
+mv -f /usr/bin/view /usr/bin/MC-view
+
+# Create on symbolic link for pyflake3
+ln -sf /usr/bin/pyflakes3 /usr/bin/pyflakes
 
 # Compile and install vim.
 NUMBER_OF_CORES=`cat /proc/cpuinfo | grep -i processor | grep ': [0-9][0-9][0-9]\|[0-9][0-9]\|[0-9]' | wc -l`
@@ -152,7 +158,9 @@ do
 	cat $NEW_PATH | grep -Ev 'expandtab' | grep -Ev 'shiftwidth' | grep -Ev 'softtabstop' | grep -Ev 'tabstop' > $OLD_PATH
 done
 
-
+# Move MC program view back to its original position
+rm -f /usr/bin/view
+mv -f /usr/bin/MC-view /usr/bin/view
 
 # Universal Ctags compilation is needed for tagbar.
 echo
@@ -168,20 +176,6 @@ make
 make install
 cd ..
 rm -rf ctags
-
-
-
-# Install Pyflakes
-echo
-echo "Installing Pyflakes ..."
-echo "--------------------------------------------------------------------------------"
-cd $HOME_DIRECTORY
-git clone https://github.com/pyflakes/pyflakes.git
-if [ "$?" != "0" ] ; then echo "Error trying to download Pyflakes" ; exit ; fi
-cd pyflakes
-/usr/bin/env python3 $HOME_DIRECTORY/pyflakes/setup.py install
-cd ..
-rm -rf pyflakes
 
 
 
